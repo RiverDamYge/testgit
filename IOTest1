@@ -1,0 +1,24 @@
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+public class IOTest1 {
+    public static void readAndWriteByteToFile()  {
+        InputStream is =null;
+        OutputStream os = null;
+        try {
+            // 在try()中打开文件会在结尾自动关闭
+            is = new FileInputStream("D:/FileInputStreamTest.txt");
+            os = new FileOutputStream("D:/FileOutputStreamTest.txt");
+            byte[] buf = new byte[4];//定义一个数组用于存放数据
+            int hasRead = 0;
+            while ((hasRead = is.read(buf)) > 0) {
+                os.write(buf, 0, hasRead);//写入数据
+            }
+            System.out.println("write success");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
