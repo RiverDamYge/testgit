@@ -1,0 +1,74 @@
+package com.company;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        arraylistset();
+        arrylistGet();
+        linkedlistset();
+        linkedlistGet();
+    }
+    public  static void arraylistset(){
+        List<Integer> list=new ArrayList<Integer>();
+        for(int i=0;i<50000;i++){
+            list.add(i);
+        }
+        Long begin=new Date().getTime();
+        for(int i=3;i<1000;i++){
+            list.add(i,i);
+        }
+        Long end = new Date().getTime();
+        System.out.println("cost : " + (end - begin)+ " ms");
+        System.out.println("number:" + list.size());
+    }
+    public static void arrylistGet(){
+        List<Integer> list = new ArrayList<Integer> ();
+        for(int i=0;i<5000;i++){//创建数据表
+            for(int j=1;j<1000;j++){
+                list.add(i+j);
+            }
+        }
+        Long begin = new Date().getTime();
+        for(int i=3;i<50000;i++){//插入数据
+            list.get(i);
+        }
+        Long end = new Date().getTime();
+        System.out.println("cost : " + (end - begin)+ " ms");
+        System.out.println("number:" + list.size());
+    }
+
+    public  static void linkedlistset(){
+        List<Integer> list=new LinkedList<Integer>();
+        for(int i=0;i<50000;i++){
+            list.add(i);
+        }
+        Long begin=new Date().getTime();
+        for(int i=3;i<1000;i++){
+            list.add(i,i);
+        }
+        Long end = new Date().getTime();
+        System.out.println("cost : " + (end - begin)+ " ms");
+        System.out.println("number:" + list.size());
+    }
+    public static void linkedlistGet(){
+        List<Integer> list = new LinkedList<Integer> ();
+        for(int i=0;i<5000;i++){//创建数据表
+            for(int j=1;j<1000;j++){
+                list.add(i+j);
+            }
+        }
+        Long begin = new Date().getTime();
+        for(int i=3;i<50000;i++){//插入数据
+            list.get(i);
+        }
+        Long end = new Date().getTime();
+        System.out.println("cost : " + (end - begin)+ " ms");
+        System.out.println("number:" + list.size());
+    }
+}
