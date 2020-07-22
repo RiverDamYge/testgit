@@ -1,0 +1,24 @@
+
+import java.io.*;
+
+public class IOTest2 {
+    public static void readAndWriteCharToFile() throws IOException {
+        Reader reader = null;
+        Writer writer =null;
+        try {
+            File readFile = new File("d:/FileInputStreamTest.txt");
+            reader = new FileReader(readFile);
+            File writeFile = new File("d:/FileOutputStreamTest.txt");
+            writer = new FileWriter(writeFile);
+            char[] byteArray = new char[(int) readFile.length()];
+            int size = reader.read(byteArray);
+            System.out.println("大小:" + size + "个字符;内容:" + new String(byteArray));
+            writer.write(byteArray);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            reader.close();
+            writer.close();
+        }
+    }
+}
