@@ -17,8 +17,8 @@ public class Application {
           File filewriter=new File("C:/Users/RiverDamSN/Desktop/456.txt");
            is=new FileInputStream(filereader);
            writer=new FileWriter(filewriter);
-           reader =new InputStreamReader(is,"GBK");
-          char[] cf=new char[(int) filereader.length()];
+           reader =new InputStreamReader(is,"GBK");//字符流转字节流
+          char[] cf=new char[(int) filereader.length()];//定义一个数组用于存放数据
           int size=reader.read(cf);
           writer.write(new String(cf));
           System.out.println(new String(cf));
