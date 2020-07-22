@@ -1,0 +1,28 @@
+import java.io.*;
+public class IOTest4 {
+    public static void sequeue() throws IOException {
+        FileInputStream fistream1 =null;
+        FileInputStream fistream2 =null;
+        SequenceInputStream sistream =null;
+        FileOutputStream fostream =null;
+        try {
+            fistream1 = new FileInputStream("d:/A.txt");
+            fistream2 = new FileInputStream("d:/B.txt");
+            sistream = new SequenceInputStream(fistream1, fistream2);
+            fostream = new FileOutputStream("d:/C.txt");
+            int temp;
+            while( ( temp = sistream.read() ) != -1) {
+                System.out.print( (char) temp );
+                fostream.write(temp);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            fostream.close();
+            sistream.close();
+            fistream1.close();
+            fistream2.close();
+        }
+    }
+}
+
