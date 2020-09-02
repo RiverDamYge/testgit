@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: bag Maven Webapp
+Implementation-Version: 1.0-SNAPSHOT
+Built-By: RiverDamSN
+Implementation-Vendor-Id: game
+Created-By: IntelliJ IDEA
+Build-Jdk: 14.0.1
+Main-Class: ${start-class}
+
